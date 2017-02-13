@@ -12,10 +12,11 @@
 
 #include <iostream>
 #include "PacString.h"
+using namespace std;
 
 int main ()
 {
-//  _CrtSetDbgFlag (_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+  //  _CrtSetDbgFlag (_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
   PacString s1 = "Hello!";
 
@@ -25,16 +26,17 @@ int main ()
   std::cout << "s2: " << s2 << std::endl;
 
   PacString s3;
+  PacString s4 (s3);
 
-  s3 = s1 + s2;
-
-  std::cout << "s3: " << s3 << std::endl;
-
-  s3 += (s3 + "!!");
+  //s3 = s1 + s2;
 
   std::cout << "s3: " << s3 << std::endl;
+  std::cout << "s4: " << s4 << std::endl;
 
 
+  //s3 += (s3 + "!!");
+
+  std::cout << "s3: " << s3 << std::endl;
 
   // TODO:
   PacString *pcDynString;
@@ -42,13 +44,21 @@ int main ()
   // dynamically allocate the PacString object using
   // pcDynString.
   // Assign "CS485" to pcDynString.
+  pcDynString = new PacString ("CS485");
+
   // Display pcDynString.
+
+  std::cout << "pcDynString: " << *pcDynString << std::endl;
   // concatenate " is the best!" on to
   // pcDynString
   // Display pcDynString.
   // deallocate the object pcDynString 
 
+  delete pcDynString;
+
   return EXIT_SUCCESS;
 }
+
+
 
 
